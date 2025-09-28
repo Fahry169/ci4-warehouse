@@ -183,18 +183,6 @@ public function update($id)
         ];
     }
 
-    public function print($id = null)
-    {
-        $data['barang'] = $this->barangModel->find($id);
-        if (!$data['barang']) {
-            return redirect()->to('/barangs')->with('error', 'Data tidak ditemukan');
-        }
-        
-        $data = array_merge($data, $this->getCompanyData());
-        $data['title'] = 'Print Barang';
-        
-        return view('barangs/print', $data);
-    }
 
     public function pdf($id = null)
     {
